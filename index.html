@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python 基础概念 · 学习笔记（扩展版）</title>
+<style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172439;--muted:#627087;--line:#dfe5ed;--accent:#127c78;--accent-light:#e5f5f0;--gold:#ad6f21;--code:#122238;--shadow:0 12px 44px rgba(25,42,69,.06)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}button{font:inherit;cursor:pointer}header{background:linear-gradient(120deg,#102d3e,#174b52 65%,#176f69);color:#fff;padding:49px max(28px,calc((100vw - 1220px)/2)) 43px}header .eyebrow{letter-spacing:.22em;color:#a7d6d0;font-size:12px;font-weight:700}header h1{font-size:clamp(30px,4vw,46px);line-height:1.26;letter-spacing:-.035em;margin:12px 0 14px}header p{max-width:740px;color:#d6e8e9;margin:0;font-size:15px}.header-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.header-meta span{background:#ffffff18;border:1px solid #ffffff25;border-radius:50px;padding:4px 12px;font-size:12px;color:#e3f2f1}.layout{max-width:1220px;padding:30px 24px 90px;margin:auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px}.sidebar{position:sticky;top:20px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:var(--shadow)}.sidebar h2{font-size:12px;color:var(--muted);letter-spacing:.13em;margin:2px 12px 12px}.nav{display:flex;flex-direction:column;gap:3px}.tab{border:0;background:transparent;color:#536276;text-align:left;padding:10px 13px;border-radius:9px;font-size:14px;display:flex;align-items:center;gap:11px;transition:.16s}.tab span.num{font-size:11px;color:#8d9cac;font-variant-numeric:tabular-nums}.tab:hover{background:#f0f5f7}.tab[aria-selected=true]{background:var(--accent-light);color:#126862;font-weight:750}.tab[aria-selected=true] .num{color:var(--accent)}.sidebar-note{border-top:1px solid var(--line);margin-top:17px;padding:15px 12px 4px;color:var(--muted);font-size:12px;line-height:1.65}.content{min-width:0}.panel{display:none;animation:show .22s ease}.panel.active{display:block}@keyframes show{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}.topic-head{margin:0 0 19px}.topic-head .kicker{font-size:12px;letter-spacing:.13em;color:var(--accent);font-weight:750}.topic-head h2{margin:5px 0 9px;font-size:30px;line-height:1.35;letter-spacing:-.02em}.topic-head p{color:var(--muted);margin:0;font-size:15px}.card{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:15px;padding:26px 29px;margin-bottom:18px}.card h3{margin:0 0 13px;font-size:18px;line-height:1.5}.card p{margin:9px 0}.card p:last-child{margin-bottom:0}.core{border-left:4px solid var(--accent);background:#f0faf7;padding:13px 17px;margin:15px 0;border-radius:0 9px 9px 0;font-weight:600;color:#20594f}.analogy{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:#fffaf0;border:1px solid #f0e4ce;border-radius:11px;padding:16px 19px;margin:17px 0}.analogy .emoji{font-size:30px;line-height:1.25}.analogy strong{color:#8a591c}.analogy p{margin:2px 0 0!important;color:#584c3f}.small{font-size:13px;color:var(--muted)}.codebox{position:relative;margin:15px 0;background:var(--code);border-radius:11px;overflow:hidden}.codebox pre{margin:0;padding:21px 19px;color:#e4edf8;font:13px/1.75 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;overflow:auto;tab-size:4}.codebox button{position:absolute;right:9px;top:9px;background:#ffffff17;color:#d3e7ee;border:1px solid #ffffff22;border-radius:6px;padding:2px 8px;font-size:11px}.codebox button:hover{background:#ffffff35}.comment{color:#85ae97}.kw{color:#a8c6fb}.str{color:#f1ce95}.n{color:#a4dfca}.output{padding:10px 15px;border-radius:8px;background:#edf3f6;color:#324b5c;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0}.output:before{content:'输出  ';color:#708391;font-family:inherit;font-weight:700}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}th,td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}th{background:#f1f5f7;color:#4b5c71;font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}code:not(pre code){background:#eff3f8;border-radius:4px;color:#0f625e;padding:2px 5px;font: .92em ui-monospace,SFMono-Regular,Consolas,monospace}.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{background:#f6f9fb;border:1px solid var(--line);padding:16px;border-radius:11px}.tile strong{display:block;margin-bottom:4px}.tile p{margin:0;color:var(--muted);font-size:13px}.flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;margin:22px 0}.node{border:1px solid #bed2d1;background:#f1faf8;padding:11px 17px;border-radius:9px;text-align:center;min-width:90px;font-weight:650}.arrow{color:var(--accent);font-weight:800}.warning{font-size:13px;color:#805b25;background:#fff8e9;border:1px solid #eeddbb;border-radius:9px;padding:11px 14px;margin:14px 0}.quiz,.demo{border:1px solid #cfe6df;background:#f6fbf9;border-radius:12px;padding:18px 20px;margin:17px 0}.demo h4,.quiz h4{font-size:15px;margin:0 0 12px}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.action{border:1px solid #b5d6cf;border-radius:8px;background:#fff;color:#17635d;padding:6px 12px;font-size:13px;font-weight:650}.action:hover{background:#e5f5f0}.action.primary{background:var(--accent);border-color:var(--accent);color:white}.result{background:#e7f3ef;border-radius:8px;padding:11px 14px;min-height:43px;font:13px/1.8 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}input[type=range]{accent-color:var(--accent);max-width:100%}.two-controls{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ctrl label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.ctrl input{width:100%}.bitview{text-align:center;margin-top:10px;font:700 18px/1.8 ui-monospace,monospace;letter-spacing:.07em}.bitview strong{color:#0d8378}.mutedline{color:var(--muted);font-size:13px;margin:6px 0}.footer{font-size:12px;color:#768398;padding-top:22px;text-align:center}details{border-top:1px solid var(--line);padding:10px 0}details summary{cursor:pointer;font-weight:650}details p{color:var(--muted);margin:7px 0}.progress{margin:14px 12px;background:#eaf0f3;height:5px;border-radius:12px;overflow:hidden}.progress>div{height:100%;width:11%;background:var(--accent);transition:width .2s}.kbd{font-family:ui-monospace,monospace;background:#fff;border:1px solid #d6dce5;border-radius:4px;padding:1px 6px;font-size:12px}@media(max-width:800px){.layout{display:block;padding:16px 14px 50px}.sidebar{position:relative;top:auto;padding:12px;margin-bottom:21px}.sidebar h2,.sidebar-note,.progress{display:none}.nav{flex-direction:row;overflow-x:auto;scrollbar-width:thin;white-space:nowrap}.tab{flex:none}.card{padding:20px 17px}.topic-head h2{font-size:25px}.tiles{grid-template-columns:1fr}header{padding:32px 20px}.two-controls{grid-template-columns:1fr}}@media print{body{background:#fff}header{background:#fff;color:#172439;border-bottom:2px solid #172439}header p,header .eyebrow{color:#4d6572}.layout{display:block;padding:0 20px}.sidebar{display:none}.panel{display:block!important;break-before:page;animation:none}.card{box-shadow:none;break-inside:avoid}.codebox{print-color-adjust:exact}.header-meta{display:none}}
+
+.compare-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}.compare-flow>div{padding:15px;border:1px solid var(--line);background:#f9fbfd;border-radius:12px}.compare-flow strong{display:block;font-size:13px}.compare-flow small{display:block;font-size:12px;color:var(--muted);line-height:1.65}.compare-flow code{font-size:12px}.mini-quiz{border:1px solid var(--line);background:#f9fbfd;border-radius:12px;padding:16px;margin:16px 0}.mini-quiz h4{font-size:15px;margin:0 0 7px}.mini-quiz details{margin-top:10px;background:#e9f7f2;border-radius:9px;padding:10px 14px}.mini-quiz summary{cursor:pointer;font-weight:650;color:#126862}.mini-quiz details p{font-size:13px;margin:6px 0}.mini-quiz .codebox{margin:10px 0}.tagline{display:inline-block;font-size:11px;letter-spacing:.06em;color:#126862;background:#e9f7f2;border-radius:99px;padding:3px 9px;margin-bottom:9px;font-weight:700}.reading-flow{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:13px 0}.reading-flow span{padding:7px 12px;background:#eef4f6;border-radius:8px;font-size:13px}.reading-flow b{color:#127c78}@media(max-width:750px){.compare-flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">PYTHON FIELD NOTES / 01</div><h1>Python 基础概念<br>从语法到理解</h1><p>把零散提问组织成一套可以反复查阅的知识笔记。每个主题都有核心结论、生活化类比、代码示例与易错点，重点理解“为什么”，而不是死记规则。</p><div class="header-meta"><span>14 个主题</span><span>生活化类比</span><span>交互式演示</span><span>离线单文件</span></div></header>
+<div class="layout"><aside class="sidebar"><h2>知识目录</h2><nav class="nav" role="tablist" aria-label="知识主题">
+<button class="tab" role="tab" aria-selected="true" aria-controls="p0" id="t0" data-tab="0"><span class="num">01</span> 学习地图</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p1" id="t1" data-tab="1"><span class="num">02</span> 变量与对象引用</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2" data-tab="2"><span class="num">03</span> 可变性与元组</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3" data-tab="3"><span class="num">04</span> 四种容器类型</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4" data-tab="4"><span class="num">05</span> 类与面向对象</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p5" id="t5" data-tab="5"><span class="num">06</span> 字面量与类型</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p6" id="t6" data-tab="6"><span class="num">07</span> global 与作用域</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p7" id="t7" data-tab="7"><span class="num">08</span> 字符串格式化</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p8" id="t8" data-tab="8"><span class="num">09</span> 位运算与右移</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p9" id="t9" data-tab="9"><span class="num">10</span> 异或 XOR</button>
+
+<button class="tab" role="tab" aria-selected="false" aria-controls="p10" id="t10" data-tab="10"><span class="num">11</span> 列表复制与浅拷贝</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p11" id="t11" data-tab="11"><span class="num">12</span> 元组的设计价值</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p12" id="t12" data-tab="12"><span class="num">13</span> 哈希与可哈希性</button>
+<button class="tab" role="tab" aria-selected="false" aria-controls="p13" id="t13" data-tab="13"><span class="num">14</span> 列表错题强化</button>
+</nav><div class="progress"><div id="prog"></div></div><div class="sidebar-note">建议路径：先理解变量与对象 → 可变性 → 容器 → 类与类型，再学习其他独立语法。<br><br>新增内容：列表复制、元组设计、哈希机制、错题强化。<br><br>提示：<span class="kbd">←</span> <span class="kbd">→</span> 可切换标签（导航聚焦时）。</div></aside><main class="content">
+<section class="panel active" id="p0" role="tabpanel" aria-labelledby="t0"><div class="topic-head"><div class="kicker">00 / OVERVIEW</div><h2>先建立一张知识地图</h2><p>这些问题看似零散，其实可以分为“对象模型”“日常语法”和“底层运算”三个层次。</p></div><article class="card"><h3>三条主线</h3><div class="tiles"><div class="tile"><strong>① 数据究竟是什么？</strong><p>变量、引用、对象、类、字面量、可变性。解决“代码究竟在改变什么”的问题。</p></div><div class="tile"><strong>② 如何组织与使用数据？</strong><p>列表、元组、集合、冻结集合、浅拷贝、哈希、作用域、字符串格式化。解决“怎么写清晰且正确的程序”。</p></div><div class="tile"><strong>③ 整数如何在二进制层面运算？</strong><p>AND、OR、XOR、左右移。解决“为什么看似奇怪的整数计算会得到这个结果”。</p></div><div class="tile"><strong>④ 什么值得优先掌握？</strong><p>阅读 Python / AI Agent 代码时，变量引用、容器、作用域、字符串处理比复杂位运算更常用。</p></div></div></article><article class="card"><h3>最值得反复思考的三句话</h3><div class="core">变量名引用对象；赋值和修改对象不是一回事。</div><div class="core">类可以把数据与操作数据的行为组织在一起，但设计对象更重要的是划清职责边界。</div><div class="core">判断一个操作是否合法，要看它修改了哪个对象，以及那个对象是否允许修改。</div><p class="small">左侧选择主题开始阅读。各主题独立成页，可以直接当作速查手册使用。</p></article></section>
+<section class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><div class="topic-head"><div class="kicker">01 / OBJECT MODEL</div><h2>变量与对象引用</h2><p>先分清“名字”和“东西”，很多 Python 疑问会迎刃而解。</p></div><article class="card"><h3>一个变量究竟是什么？</h3><div class="core">变量名是对象的引用名称。<code>=</code> 通常让变量名绑定到右侧表达式得到的对象。</div><div class="analogy"><span class="emoji">🏷️</span><div><strong>生活类比：标签与盒子</strong><p>对象是盒子，变量名是贴在盒子上的标签。把标签从旧盒子移到新盒子，不会改变旧盒子内部的东西。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>a = [1, 2]
+b = a             # 两个名字引用同一个列表
+b.append(3)
+print(a)          # [1, 2, 3]
+
+b = [4, 5]        # b 重新绑定到新列表
+print(a)          # [1, 2, 3]
+print(b)          # [4, 5]</code></pre></div><div class="demo"><h4>交互实验：共享引用与重新绑定</h4><p class="small">从 <code>a = [1, 2]; b = a</code> 开始，点按钮查看两个名字引用的数据。</p><div class="buttons"><button class="action primary" id="appendBtn">b.append(3)</button><button class="action" id="rebindBtn">b = [4, 5]</button><button class="action" id="resetRef">重置</button></div><div class="result" id="refResult" aria-live="polite"></div></div><p class="small">提醒：对象身份与内容不同。两个列表即使内容相同，也可能是不同对象。可以用 <code>is</code> 判断是否为同一对象。</p></article></section>
+<section class="panel" id="p2" role="tabpanel" aria-labelledby="t2"><div class="topic-head"><div class="kicker">02 / MUTABILITY</div><h2>可变性与元组</h2><p>元组不可变，为什么元组里面的列表还能 append？</p></div><article class="card"><h3>不可变约束的是谁？</h3><div class="core">元组的不可变性意味着：创建后不能增加、删除或替换元组元素所引用的对象；并不保证内部对象的状态不变。</div><div class="analogy"><span class="emoji">🧺</span><div><strong>生活类比：固定格子的储物柜</strong><p>柜子第一个格子固定放了一个篮子。不能用新篮子替换原篮子，但可以往原篮子里放东西。元组是柜子，列表是篮子。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>x = ([1, 2], "apple")
+x[0].append(3)       # 合法：修改原列表
+print(x)             # ([1, 2, 3], 'apple')
+
+x[0] = [1, 2, 3]    # TypeError：替换元组元素
+</code></pre></div><h3>更换整个元组为什么合法？</h3><div class="codebox"><button class="copy">复制</button><pre><code>x = (1, "apple")
+y = x
+x = (2, "apple")     # 合法：x 改为引用新元组
+print(y)             # (1, 'apple')
+
+x[0] = 3             # TypeError：修改元组内部元素</code></pre></div><p>关键区别是：<code>x = ...</code> 重新绑定变量；<code>x[0] = ...</code> 尝试修改元组内部某个位置。两者根本不是同一层操作。</p><div class="warning">细节：即使元组自身不可变，包含列表的元组一般也不可哈希，不能直接作为字典键或集合成员。</div></article></section>
+<section class="panel" id="p3" role="tabpanel" aria-labelledby="t3"><div class="topic-head"><div class="kicker">03 / COLLECTIONS</div><h2>四种容器类型</h2><p>list、tuple、set、frozenset 的三个比较维度：顺序、重复、可变性。</p></div><article class="card"><div class="table-wrap"><table><thead><tr><th>类型</th><th>有确定顺序</th><th>允许重复</th><th>可增删/替换</th></tr></thead><tbody><tr><td><code>list</code></td><td>是</td><td>是</td><td>是</td></tr><tr><td><code>tuple</code></td><td>是</td><td>是</td><td>否</td></tr><tr><td><code>set</code></td><td>否</td><td>否</td><td>是</td></tr><tr><td><code>frozenset</code></td><td>否</td><td>否</td><td>否</td></tr></tbody></table></div><div class="tiles"><div class="tile"><strong>🛒 list · 购物清单</strong><p>商品有先后顺序、可重复购买、随时增删。</p></div><div class="tile"><strong>🏅 tuple · 已公布的名次记录</strong><p>第一、第二、第三的位置固定，发布后不允许直接修改记录。</p></div><div class="tile"><strong>🍎 set · 水果品类名册</strong><p>只关心有哪些种类，不关心顺序；同一种只登记一次，名册可以更新。</p></div><div class="tile"><strong>📜 frozenset · 定稿品类名册</strong><p>只有互不重复的品类，而且不再允许增删。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>a = ["apple", "banana", "apple"]
+b = ("apple", "banana", "apple")
+c = {"apple", "banana", "apple"}
+d = frozenset({"apple", "banana", "apple"})
+
+print(a[0])       # apple：可以按索引取值
+print(len(c))     # 2：集合自动去重
+c.add("cherry")  # set 可增删
+# d.add("cherry") # AttributeError：frozenset 无 add</code></pre></div><div class="warning">注意：<code>{}</code> 表示空字典，不是空集合；空集合要写 <code>set()</code>。集合元素必须可哈希，例如普通列表不能直接放入集合。</div></article></section>
+<section class="panel" id="p4" role="tabpanel" aria-labelledby="t4"><div class="topic-head"><div class="kicker">04 / OBJECT ORIENTATION</div><h2>类与面向对象</h2><p>数据和行为放在一起的目的，是让对象的职责更清晰。</p></div><article class="card"><div class="core">类（Class）描述一类对象的属性与行为；对象（Object）是类的实例。</div><div class="analogy"><span class="emoji">🚚</span><div><strong>生活类比：一台输送机</strong><p>输送机有长度、速度这样的数据，也有计算理论输送时间这样的行为。让输送机负责自己的计算，比让所有外部代码都去解析它的数据更有边界感。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>class Conveyor:
+    def __init__(self, length, speed):
+        self.length = length
+        self.speed = speed
+
+    def travel_time(self):
+        return self.length / self.speed
+
+c = Conveyor(10, 2)
+print(c.travel_time())  # 5.0</code></pre></div><h3>Python 与 Java 的“基本类型”区别</h3><div class="table-wrap"><table><thead><tr><th>问题</th><th>Python</th><th>Java</th></tr></thead><tbody><tr><td>整数 <code>10</code></td><td><code>int</code> 对象</td><td>可以是原始 <code>int</code> 值</td></tr><tr><td>字符串</td><td><code>str</code> 对象</td><td><code>String</code> 对象</td></tr><tr><td>原始类型 primitive</td><td>无 Java 意义上的原始类型</td><td>8 种：byte、short、int、long、float、double、boolean、char</td></tr></tbody></table></div><div class="codebox"><button class="copy">复制</button><pre><code>x = 10
+print(type(x))      # &lt;class 'int'&gt;
+print(x.bit_length()) # 4
+
+s = "hello"
+print(s.upper())    # HELLO</code></pre></div><p>不要推导为“面向对象语言必须把所有类型做成类”。Java 也支持 OOP，却仍然有原始类型。Python 更统一地将值视为对象。</p><p class="small">进一步思考：哪些行为应由输送机负责？哪些属于整条输送系统或调度器？OOP 不只是写类，更是划分职责。</p></article></section>
+<section class="panel" id="p5" role="tabpanel" aria-labelledby="t5"><div class="topic-head"><div class="kicker">05 / LITERALS & TYPES</div><h2>字面量与数值类型</h2><p>“怎么写出一个值”和“这个值是什么对象”，属于两个不同层次。</p></div><article class="card"><h3>什么叫字面量？</h3><div class="core">字面量（Literal）是直接写在源代码中、表示某个值的语法形式。</div><div class="analogy"><span class="emoji">📝</span><div><strong>生活类比：直接报数字与让人算出来</strong><p>“10”是直接报答案；“5 + 5”是给出计算过程。最终都是十，但表达方式不同。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>x = "apple"    # "apple" 是字符串字面量
+n = 10         # 10 是整数字面量
+m = 5 + 5      # 5 + 5 是表达式
+z = 2j         # 虚数字面量；j 是虚数单位</code></pre></div><h3>为什么出现 <code>1j</code>？</h3><p><code>complex</code> 是 Python 的复数类型。例如 <code>3 + 4j</code> 具有实部 3 和虚部 4，可用于交流电、信号处理、频谱与控制系统等计算。</p><div class="codebox"><button class="copy">复制</button><pre><code>z = 3 + 4j
+print(type(z))  # &lt;class 'complex'&gt;
+print(z.real)   # 3.0
+print(z.imag)   # 4.0
+print(abs(z))   # 5.0</code></pre></div><div class="warning">严格语法中，<code>[1, 2]</code>、<code>(1, 2)</code> 和 <code>{"a": 1}</code> 是容器显示式（display）；它们能直接构造值，但不能简单地与数字、字符串字面量等同。</div></article></section>
+<section class="panel" id="p6" role="tabpanel" aria-labelledby="t6"><div class="topic-head"><div class="kicker">06 / SCOPE</div><h2>global 与变量作用域</h2><p>为什么 <code>global x = "fantastic"</code> 会报错？</p></div><article class="card"><div class="core"><code>global x</code> 声明函数中的名字 <code>x</code> 指向模块级作用域；赋值必须另写一条语句。</div><div class="analogy"><span class="emoji">🏢</span><div><strong>生活类比：办公室自己的白板与公司公共白板</strong><p>函数内部默认可以有自己的局部名字。<code>global x</code> 相当于声明：“接下来我操作的是公司公共白板上的 x，而不是办公室自己的 x。”</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>x = "awesome"
+
+def myfunc():
+    global x
+    x = "fantastic"
+
+myfunc()
+print("Python is " + x)  # Python is fantastic</code></pre></div><div class="warning"><code>global x = "fantastic"</code> 是 <code>SyntaxError</code>；<code>global</code> 不是赋值语法。</div><div class="codebox"><button class="copy">复制</button><pre><code>x = "awesome"
+
+def myfunc():
+    x = "fantastic"  # 没有 global，创建局部名字
+    print(x)          # fantastic
+
+myfunc()
+print(x)              # awesome</code></pre></div><p>记忆：<code>global</code> 决定名字解析与赋值的作用域，<code>=</code> 负责绑定对象。日常代码中也可通过返回值传递结果，减少对全局变量的依赖。</p></article></section>
+<section class="panel" id="p7" role="tabpanel" aria-labelledby="t7"><div class="topic-head"><div class="kicker">07 / STRINGS</div><h2>format() 与 f-string</h2><p>两个占位符必须有足够的数据来填充。</p></div><article class="card"><div class="analogy"><span class="emoji">✉️</span><div><strong>生活类比：有空格的邀请函模板</strong><p>“尊敬的___，请于___到场”。有两个空位就需要两个对应信息；只给一个，第二个空位自然填不了。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>age = 63
+height = 175
+txt = "My name is Bill, I am {}, and I am {}"
+
+# print(txt.format(age))  # IndexError：缺第二个参数
+print(txt.format(age, height))
+# My name is Bill, I am 63, and I am 175</code></pre></div><h3>三种常见方式</h3><div class="codebox"><button class="copy">复制</button><pre><code>"{} {}".format(63, 175)                 # 顺序填充
+"{1} {0}".format(175, 63)             # 指定位置
+"{age} {height}".format(age=63, height=175) # 命名
+
+age = 63
+height = 175
+print(f"Age={age}, Height={height}")  # f-string</code></pre></div><p>在日常 Python 开发中，<strong>f-string 通常更简洁直观</strong>，花括号里还能写表达式，例如 <code>f"明年 {age + 1} 岁"</code>。</p><div class="warning">如果从网页复制了 <code>**63**</code> 这种 Markdown 加粗写法，Python 不会把它当作数字 63；代码中应直接写 <code>63</code>。</div></article></section>
+<section class="panel" id="p8" role="tabpanel" aria-labelledby="t8"><div class="topic-head"><div class="kicker">08 / BITWISE OPERATIONS</div><h2>按位与、或、移位</h2><p>把整数理解为一排二进制开关，运算就容易看懂。</p></div><article class="card"><h3>为什么 <code>5 &amp; 3 = 1</code>？</h3><div class="core">按位与 <code>&amp;</code>：两位都是 1，结果才是 1。</div><div class="analogy"><span class="emoji">🔌</span><div><strong>生活类比：双开关条件</strong><p>一盏灯必须同时满足“电源打开”和“安全门关闭”等两个条件才亮。按位与在每个二进制位上分别做这样的“同时满足”判断。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>x = 5         # 0101
+x &amp;= 3        # 0011  →  0001
+print(x)      # 1
+
+print(5 | 3)  # 7：按位或
+print(5 &lt;&lt; 1) # 10：左移一位</code></pre></div><h3>为什么 <code>5 &gt;&gt; 3 = 0</code>？</h3><p>右移三位时，右边移出的二进制位被丢弃。对非负整数，相当于除以 <code>2 ** 3</code> 后向下取整：<code>5 // 8 = 0</code>。</p><div class="codebox"><button class="copy">复制</button><pre><code>x = 5         # 00000101
+x &gt;&gt;= 3       # 00000000
+print(x)      # 0
+
+print(5 &gt;&gt; 1)  # 2
+print(5 &gt;&gt; 2)  # 1
+print(5 &gt;&gt; 3)  # 0</code></pre></div><div class="demo"><h4>交互实验：AND 与右移</h4><div class="two-controls"><div class="ctrl"><label for="bitA">整数 A：<span id="bitAValue">5</span></label><input type="range" min="0" max="31" value="5" id="bitA"></div><div class="ctrl"><label for="bitB">整数 B / 右移位数：<span id="bitBValue">3</span></label><input type="range" min="0" max="5" value="3" id="bitB"></div></div><div class="result" id="bitResult"></div></div><p class="small">对于整数 <code>n</code>，Python 中 <code>n &gt;&gt; k</code> 等价于 <code>n // (2 ** k)</code>。负数也按向下取整规则工作，例如 <code>-5 &gt;&gt; 1 == -3</code>。</p></article></section>
+<section class="panel" id="p9" role="tabpanel" aria-labelledby="t9"><div class="topic-head"><div class="kicker">09 / XOR</div><h2>异或 XOR</h2><p>相同为 0，不同为 1；对同一个值异或两次，会恢复原状。</p></div><article class="card"><div class="core">按位异或 <code>^</code>：每个二进制位上，两个值不同时输出 1，相同时输出 0。</div><div class="table-wrap"><table><thead><tr><th>A</th><th>B</th><th>A XOR B</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody></table></div><div class="analogy"><span class="emoji">💡</span><div><strong>生活类比：一个可翻转的开关</strong><p>把异或的第二个数看成“翻转指令”：位是 0 就保持原样，位是 1 就翻转。对同一位连续翻转两次，会回到起点。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>x = 5           # 0101
+x ^= 3          # 0011 → 0110
+print(x)        # 6
+x ^= 3
+print(x)        # 5：恢复原值
+
+print(2 ^ 3)    # 1：不是乘方！
+print(2 ** 3)   # 8：乘方</code></pre></div><div class="demo"><h4>交互实验：观察不同的二进制位</h4><div class="two-controls"><div class="ctrl"><label for="xorA">A：<span id="xorAValue">5</span></label><input id="xorA" type="range" min="0" max="15" value="5"></div><div class="ctrl"><label for="xorB">B：<span id="xorBValue">3</span></label><input id="xorB" type="range" min="0" max="15" value="3"></div></div><div class="result" id="xorResult"></div></div><h3>为什么能找出只出现一次的数字？</h3><p>因为 <code>A ^ A = 0</code> 且 <code>A ^ 0 = A</code>。若其他数字恰好各出现两次，就能两两抵消。</p><div class="codebox"><button class="copy">复制</button><pre><code>numbers = [4, 1, 2, 1, 2]
+result = 0
+for n in numbers:
+    result ^= n
+print(result)  # 4</code></pre></div><div class="warning">异或并不是安全的加密方案；单纯对数据与固定值做 XOR 很容易被还原。另外，对 <code>set</code> 使用 <code>^</code> 表示对称差集，即只在其中一个集合出现的元素。</div></article></section>
+
+<section class="panel" id="p10" role="tabpanel" aria-labelledby="t10">
+<div class="topic-head"><div class="kicker">10 / COPYING & REFERENCES</div><h2>列表复制与浅拷贝</h2><p>复制的是“书架”，还是连书架上的书都一起复制？</p></div>
+<article class="card"><h3>三个动作，看起来相似，本质不同</h3>
+<div class="core"><code>b = a</code> 没有复制列表；<code>a.copy()</code>、<code>list(a)</code>、<code>a[:]</code> 创建新外层列表，但都属于浅拷贝。</div>
+<div class="analogy"><span class="emoji">📚</span><div><strong>生活类比：书架和书</strong><p>普通赋值：两人使用同一个书架；浅拷贝：有两个不同的书架，但架上仍指向同一批书；深拷贝：通常连架上的书也另复制一份。</p></div></div>
+<div class="compare-flow"><div><strong>普通赋值</strong><code>b = a</code><small>两个变量 → 同一个外层列表；<code>a is b</code> 为 True。</small></div><div><strong>浅拷贝</strong><code>b = a.copy()</code><small>两个变量 → 两个外层列表；嵌套子列表仍共享。</small></div><div><strong>深拷贝</strong><code>b = copy.deepcopy(a)</code><small>递归复制内部对象；部分不可变对象和特殊对象可能仍被共享。</small></div></div>
+<div class="codebox"><button class="copy">复制</button><pre><code>a = [1, 2]
+b = a
+c = a.copy()
+d = list(a)
+e = a[:]
+
+print(a is b)  # True
+print(a is c)  # False
+print(a is d)  # False
+print(a is e)  # False</code></pre></div>
+<div class="warning"><strong>易错点：</strong><code>==</code> 比较内容是否相等；<code>is</code> 判断是否同一个对象。内容相同不代表对象相同。</div></article>
+<article class="card"><h3>嵌套列表：为什么浅拷贝后还能相互影响？</h3>
+<div class="codebox"><button class="copy">复制</button><pre><code>a = [[1, 2], [3, 4]]
+b = a.copy()
+
+b[0].append(5)
+print(a)  # [[1, 2, 5], [3, 4]]
+
+b[0] = [9, 9]
+print(a)  # [[1, 2, 5], [3, 4]]
+print(b)  # [[9, 9], [3, 4]]</code></pre></div>
+<p><code>b[0].append(5)</code> 改变的是共享的子列表；<code>b[0] = [9, 9]</code> 改变的是 <code>b</code> 外层列表的一个引用位置。</p>
+<div class="reading-flow"><span>原外层列表 a</span><b>↘</b><span>共享的子列表 [1, 2]</span><b>↗</b><span>新外层列表 b</span></div>
+<div class="core">复制容器 ≠ 复制容器中的对象。先判断“修改的是哪一层”，再预测影响范围。</div></article></section>
+<section class="panel" id="p11" role="tabpanel" aria-labelledby="t11">
+<div class="topic-head"><div class="kicker">11 / WHY IMMUTABILITY</div><h2>为什么元组不能修改、添加？</h2><p>元组不是“功能少的列表”，而是在表达固定结构的数据值。</p></div>
+<article class="card"><h3>设计意图：让数据的结构稳定</h3>
+<div class="analogy"><span class="emoji">📍</span><div><strong>生活类比：传感器坐标 vs 行李队列</strong><p>行李队列中的成员不断进出，因此使用 <code>list</code>；二维坐标由 x、y 两部分组成，作为一个完整的值更适合用 <code>tuple</code>。坐标发生变更时，可以产生新的坐标值，而不必原地改变旧值。</p></div></div>
+<div class="codebox"><button class="copy">复制</button><pre><code>bags = ["Bag001", "Bag002"]
+bags.append("Bag003")       # 队列在变化
+
+position = (10, 20)       # 固定结构的坐标
+# position[0] = 15        # TypeError
+position = (15, 20)       # 合法：重新绑定新元组</code></pre></div>
+<div class="tiles"><div class="tile"><strong>避免共享数据被误改</strong><p>元组的元素位置无法被直接替换，有助于提早暴露错误。</p></div><div class="tile"><strong>表达固定记录</strong><p>如坐标、RGB、某些固定字段的返回结果。</p></div><div class="tile"><strong>可作为复合字典键</strong><p>当所有元素都可哈希时，元组也可哈希。</p></div><div class="tile"><strong>降低状态变化复杂度</strong><p>不必担忧其他代码原地改变元组的元素引用。</p></div></div></article>
+<article class="card"><h3>不可变 ≠ 不能创建新值</h3>
+<div class="codebox"><button class="copy">复制</button><pre><code>x = (1, 2, 3)
+y = x + (4,)     # 创建新元组
+print(x)        # (1, 2, 3)
+print(y)        # (1, 2, 3, 4)</code></pre></div>
+<p><code>(4,)</code> 中的逗号不可省略。还要记住：元组只保证自身结构不变，如果它引用一个 <code>list</code>，列表内容仍可以修改。</p>
+<div class="warning">元组不是“深度冻结”的容器，也不意味着天然线程安全；如果字段很多、需要清晰命名，可以考虑 <code>NamedTuple</code> 或 <code>dataclass</code>。</div></article></section>
+<section class="panel" id="p12" role="tabpanel" aria-labelledby="t12">
+<div class="topic-head"><div class="kicker">12 / HASHABILITY</div><h2>哈希与可哈希性</h2><p>为什么字符串可以做字典键，而列表不可以？</p></div>
+<article class="card"><h3>第一性原理：查找依赖稳定的定位规则</h3>
+<div class="core">可哈希对象必须有可用的哈希值，并遵守约定：哈希值在生命周期内保持稳定；两个相等的对象必须具有相同的哈希值。</div>
+<div class="analogy"><span class="emoji">📖</span><div><strong>生活类比：图书馆检索编号</strong><p>拿书名/编号计算定位信息，就不用从第一本开始逐个找。如果编号随意变动但索引不更新，查找会出问题。哈希值不是全球唯一的身份证号：不同键可能发生哈希冲突，字典还需要比较键是否相等。</p></div></div>
+<div class="reading-flow"><span>字典键</span><b>→</b><span>哈希计算</span><b>→</b><span>候选存储位置</span><b>→</b><span>必要时比较相等性</span></div>
+<div class="codebox"><button class="copy">复制</button><pre><code>devices = {
+    (10, 20): "Conveyor A",
+    (30, 40): "Scanner B"
+}
+print(devices[(10, 20)])  # Conveyor A
+
+# devices[[10, 20]] = "X"  # TypeError</code></pre></div></article>
+<article class="card"><h3>哪些对象可哈希？</h3><div class="table-wrap"><table><thead><tr><th>类型</th><th>可哈希？</th><th>理解方式</th></tr></thead><tbody><tr><td><code>int</code> / <code>float</code> / <code>str</code> / <code>bool</code></td><td>是</td><td>内置的不可变值</td></tr><tr><td><code>tuple</code></td><td>有条件</td><td>所有元素都必须可哈希</td></tr><tr><td><code>frozenset</code></td><td>是（其元素需可哈希）</td><td>冻结集合的成员可哈希</td></tr><tr><td><code>list</code> / <code>dict</code> / <code>set</code></td><td>否</td><td>这些内置可变容器不提供哈希</td></tr></tbody></table></div>
+<div class="codebox"><button class="copy">复制</button><pre><code>a = (1, "apple")
+b = ([1, 2], "apple")
+c = frozenset({"apple", "banana"})
+
+print(hash(a))  # 返回一个整数
+# print(hash(b))  # TypeError：内部 list 不可哈希
+print(hash(c))  # 返回一个整数</code></pre></div>
+<div class="warning">不要把“可哈希”简单等同于“不可变”。自定义类的对象也可能根据身份可哈希；具体要看 <code>__hash__</code> 和 <code>__eq__</code> 的约定。哈希碰撞不表示两个键相等。</div></article>
+<article class="card"><h3>为什么这对开发有意义？</h3><p>字典 <code>dict</code> 用可哈希键定位数据，集合 <code>set</code> 用哈希支持去重和成员判断。比如把处理过的行李编号放入集合，通常比扫描长列表更适合快速查找。</p>
+<div class="codebox"><button class="copy">复制</button><pre><code>processed = {"Bag001", "Bag002"}
+print("Bag001" in processed)  # True
+
+# 平均情况下，set/dict 的查找接近 O(1)
+# list 的成员查找通常是 O(n)</code></pre></div></article></section>
+<section class="panel" id="p13" role="tabpanel" aria-labelledby="t13">
+<div class="topic-head"><div class="kicker">13 / RETRIEVAL PRACTICE</div><h2>列表错题强化</h2><p>专攻容易误判的知识点：切片、删除、返回值、浅拷贝和遍历时修改。</p></div>
+<article class="card"><h3>学习策略：先在脑中运行，再展开解析</h3><p>这些题目基于最近的列表测试薄弱点重新设计，避免机械重复原题。每个题目请先写出预测结果，再点击“查看答案与原因”。</p>
+<div class="mini-quiz"><span class="tagline">01 / 切片索引</span><h4>输出是什么？</h4><div class="codebox"><button class="copy">复制</button><pre><code>x = [10, 20, 30, 40, 50, 60]
+print(x[0:5:2])</code></pre></div><details><summary>查看答案与原因</summary><p><strong>[10, 30, 50]</strong>。从索引 0 开始，每隔 2 个索引取一次，stop=5 不包含。不要把切片写成“先取几个，再跳几步”。</p></details></div>
+<div class="mini-quiz"><span class="tagline">02 / 删除行为</span><h4>输出是什么？</h4><div class="codebox"><button class="copy">复制</button><pre><code>x = [7, 8, 7, 9]
+a = x.pop(0)
+x.remove(7)
+print(a, x)</code></pre></div><details><summary>查看答案与原因</summary><p><strong>7 [8, 9]</strong>。<code>pop(0)</code> 根据索引删除并返回第一个 7；<code>remove(7)</code> 根据值删除剩下的第一个匹配项。它不会删除所有匹配值。</p></details></div>
+<div class="mini-quiz"><span class="tagline">03 / 原地修改和返回值</span><h4>输出是什么？</h4><div class="codebox"><button class="copy">复制</button><pre><code>x = [2, 5, 1]
+y = x.reverse()
+print(x)
+print(y)</code></pre></div><details><summary>查看答案与原因</summary><p><strong>[1, 5, 2]</strong>，然后是 <strong>None</strong>。<code>reverse()</code> 原地改变 x 的顺序，但返回 None；<code>sort()</code> 也有类似特点。</p></details></div>
+<div class="mini-quiz"><span class="tagline">04 / 浅拷贝的另一种写法</span><h4>输出是什么？</h4><div class="codebox"><button class="copy">复制</button><pre><code>a = [[1], [2]]
+b = list(a)
+b[0].append(9)
+print(a)
+print(a is b)</code></pre></div><details><summary>查看答案与原因</summary><p><strong>[[1, 9], [2]]</strong>，然后是 <strong>False</strong>。<code>list(a)</code> 创建新外层列表，但其中的子列表是共享的；外层对象不同，内部仍会受影响。</p></details></div>
+<div class="mini-quiz"><span class="tagline">05 / 迭代时删除</span><h4>输出是什么？</h4><div class="codebox"><button class="copy">复制</button><pre><code>x = [2, 4, 6, 8]
+for n in x:
+    if n &lt; 6:
+        x.remove(n)
+print(x)</code></pre></div><details><summary>查看答案与原因</summary><p><strong>[4, 6, 8]</strong>。删掉 2 后，4 左移到索引 0，而迭代推进到索引 1，跳过了 4。通常不要在遍历原列表时直接删除其元素；可用列表推导式生成新列表。</p></details></div>
+<div class="codebox"><button class="copy">复制</button><pre><code># 更易理解的过滤写法
+x = [2, 4, 6, 8]
+x = [n for n in x if n &gt;= 6]
+print(x)  # [6, 8]</code></pre></div>
+<div class="core">判断是否真正掌握：不查教程，也能解释“为什么得到这个结果”，比背诵方法名重要。</div></article></section>
+<div class="footer">Python 基础学习笔记 · 基于当前学习讨论整理 · 无需互联网连接 · 可在浏览器中打印为 PDF</div>
+</main></div>
+<script>
+(()=>{'use strict';const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];function show(i){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',String(j===i));t.tabIndex=j===i?0:-1;panels[j].classList.toggle('active',j===i)});document.getElementById('prog').style.width=((i+1)/tabs.length*100)+'%';if(location.hash!==`#topic-${i+1}`)history.replaceState(null,'',`#topic-${i+1}`)}tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>show(i));tab.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();let j=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;show(j);tabs[j].focus()}})});const h=location.hash.match(/^#topic-(\d+)$/);if(h)show(Math.max(0,Math.min(tabs.length-1,Number(h[1])-1)));document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',async()=>{let code=btn.parentElement.querySelector('code').textContent;try{await navigator.clipboard.writeText(code);btn.textContent='已复制'}catch{btn.textContent='请选择代码复制'}setTimeout(()=>btn.textContent='复制',1500)}));let first=[1,2],second=first;const refResult=document.getElementById('refResult');function renderRef(){refResult.textContent=`a → [${first.join(', ')}]\nb → [${second.join(', ')}]\na is b → ${first===second?'True':'False'}`}document.getElementById('appendBtn').onclick=()=>{second.push(3);renderRef()};document.getElementById('rebindBtn').onclick=()=>{second=[4,5];renderRef()};document.getElementById('resetRef').onclick=()=>{first=[1,2];second=first;renderRef()};renderRef();const fmt=n=>n.toString(2).padStart(8,'0');function renderBit(){let a=Number(document.getElementById('bitA').value),b=Number(document.getElementById('bitB').value);document.getElementById('bitAValue').textContent=a;document.getElementById('bitBValue').textContent=b;document.getElementById('bitResult').textContent=`A            ${fmt(a)}  (${a})\nB            ${fmt(b)}  (${b})\nA & B        ${fmt(a&b)}  (${a&b})\nA >> B       ${fmt(a>>b)}  (${a>>b})`}function renderXor(){let a=Number(document.getElementById('xorA').value),b=Number(document.getElementById('xorB').value);document.getElementById('xorAValue').textContent=a;document.getElementById('xorBValue').textContent=b;document.getElementById('xorResult').textContent=`A       ${fmt(a)}  (${a})\nB       ${fmt(b)}  (${b})\nA ^ B   ${fmt(a^b)}  (${a^b})\n(A ^ B) ^ B = ${((a^b)^b)}  （还原 A）`}['bitA','bitB'].forEach(id=>document.getElementById(id).addEventListener('input',renderBit));['xorA','xorB'].forEach(id=>document.getElementById(id).addEventListener('input',renderXor));renderBit();renderXor()})();
+</script>
+</body></html>
