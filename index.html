@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Python 基础概念 · 学习笔记（扩展版）</title>
+<title>Python 基础概念 · 学习笔记（持续更新）</title>
 <style>
 :root{--bg:#f5f7fb;--paper:#fff;--ink:#172439;--muted:#627087;--line:#dfe5ed;--accent:#127c78;--accent-light:#e5f5f0;--gold:#ad6f21;--code:#122238;--shadow:0 12px 44px rgba(25,42,69,.06)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}button{font:inherit;cursor:pointer}header{background:linear-gradient(120deg,#102d3e,#174b52 65%,#176f69);color:#fff;padding:49px max(28px,calc((100vw - 1220px)/2)) 43px}header .eyebrow{letter-spacing:.22em;color:#a7d6d0;font-size:12px;font-weight:700}header h1{font-size:clamp(30px,4vw,46px);line-height:1.26;letter-spacing:-.035em;margin:12px 0 14px}header p{max-width:740px;color:#d6e8e9;margin:0;font-size:15px}.header-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.header-meta span{background:#ffffff18;border:1px solid #ffffff25;border-radius:50px;padding:4px 12px;font-size:12px;color:#e3f2f1}.layout{max-width:1220px;padding:30px 24px 90px;margin:auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px}.sidebar{position:sticky;top:20px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:var(--shadow)}.sidebar h2{font-size:12px;color:var(--muted);letter-spacing:.13em;margin:2px 12px 12px}.nav{display:flex;flex-direction:column;gap:3px}.tab{border:0;background:transparent;color:#536276;text-align:left;padding:10px 13px;border-radius:9px;font-size:14px;display:flex;align-items:center;gap:11px;transition:.16s}.tab span.num{font-size:11px;color:#8d9cac;font-variant-numeric:tabular-nums}.tab:hover{background:#f0f5f7}.tab[aria-selected=true]{background:var(--accent-light);color:#126862;font-weight:750}.tab[aria-selected=true] .num{color:var(--accent)}.sidebar-note{border-top:1px solid var(--line);margin-top:17px;padding:15px 12px 4px;color:var(--muted);font-size:12px;line-height:1.65}.content{min-width:0}.panel{display:none;animation:show .22s ease}.panel.active{display:block}@keyframes show{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}.topic-head{margin:0 0 19px}.topic-head .kicker{font-size:12px;letter-spacing:.13em;color:var(--accent);font-weight:750}.topic-head h2{margin:5px 0 9px;font-size:30px;line-height:1.35;letter-spacing:-.02em}.topic-head p{color:var(--muted);margin:0;font-size:15px}.card{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:15px;padding:26px 29px;margin-bottom:18px}.card h3{margin:0 0 13px;font-size:18px;line-height:1.5}.card p{margin:9px 0}.card p:last-child{margin-bottom:0}.core{border-left:4px solid var(--accent);background:#f0faf7;padding:13px 17px;margin:15px 0;border-radius:0 9px 9px 0;font-weight:600;color:#20594f}.analogy{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:#fffaf0;border:1px solid #f0e4ce;border-radius:11px;padding:16px 19px;margin:17px 0}.analogy .emoji{font-size:30px;line-height:1.25}.analogy strong{color:#8a591c}.analogy p{margin:2px 0 0!important;color:#584c3f}.small{font-size:13px;color:var(--muted)}.codebox{position:relative;margin:15px 0;background:var(--code);border-radius:11px;overflow:hidden}.codebox pre{margin:0;padding:21px 19px;color:#e4edf8;font:13px/1.75 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;overflow:auto;tab-size:4}.codebox button{position:absolute;right:9px;top:9px;background:#ffffff17;color:#d3e7ee;border:1px solid #ffffff22;border-radius:6px;padding:2px 8px;font-size:11px}.codebox button:hover{background:#ffffff35}.comment{color:#85ae97}.kw{color:#a8c6fb}.str{color:#f1ce95}.n{color:#a4dfca}.output{padding:10px 15px;border-radius:8px;background:#edf3f6;color:#324b5c;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0}.output:before{content:'输出  ';color:#708391;font-family:inherit;font-weight:700}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}th,td{border-bottom:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}th{background:#f1f5f7;color:#4b5c71;font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}code:not(pre code){background:#eff3f8;border-radius:4px;color:#0f625e;padding:2px 5px;font: .92em ui-monospace,SFMono-Regular,Consolas,monospace}.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{background:#f6f9fb;border:1px solid var(--line);padding:16px;border-radius:11px}.tile strong{display:block;margin-bottom:4px}.tile p{margin:0;color:var(--muted);font-size:13px}.flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;margin:22px 0}.node{border:1px solid #bed2d1;background:#f1faf8;padding:11px 17px;border-radius:9px;text-align:center;min-width:90px;font-weight:650}.arrow{color:var(--accent);font-weight:800}.warning{font-size:13px;color:#805b25;background:#fff8e9;border:1px solid #eeddbb;border-radius:9px;padding:11px 14px;margin:14px 0}.quiz,.demo{border:1px solid #cfe6df;background:#f6fbf9;border-radius:12px;padding:18px 20px;margin:17px 0}.demo h4,.quiz h4{font-size:15px;margin:0 0 12px}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.action{border:1px solid #b5d6cf;border-radius:8px;background:#fff;color:#17635d;padding:6px 12px;font-size:13px;font-weight:650}.action:hover{background:#e5f5f0}.action.primary{background:var(--accent);border-color:var(--accent);color:white}.result{background:#e7f3ef;border-radius:8px;padding:11px 14px;min-height:43px;font:13px/1.8 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}input[type=range]{accent-color:var(--accent);max-width:100%}.two-controls{display:grid;grid-template-columns:1fr 1fr;gap:16px}.ctrl label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.ctrl input{width:100%}.bitview{text-align:center;margin-top:10px;font:700 18px/1.8 ui-monospace,monospace;letter-spacing:.07em}.bitview strong{color:#0d8378}.mutedline{color:var(--muted);font-size:13px;margin:6px 0}.footer{font-size:12px;color:#768398;padding-top:22px;text-align:center}details{border-top:1px solid var(--line);padding:10px 0}details summary{cursor:pointer;font-weight:650}details p{color:var(--muted);margin:7px 0}.progress{margin:14px 12px;background:#eaf0f3;height:5px;border-radius:12px;overflow:hidden}.progress>div{height:100%;width:11%;background:var(--accent);transition:width .2s}.kbd{font-family:ui-monospace,monospace;background:#fff;border:1px solid #d6dce5;border-radius:4px;padding:1px 6px;font-size:12px}@media(max-width:800px){.layout{display:block;padding:16px 14px 50px}.sidebar{position:relative;top:auto;padding:12px;margin-bottom:21px}.sidebar h2,.sidebar-note,.progress{display:none}.nav{flex-direction:row;overflow-x:auto;scrollbar-width:thin;white-space:nowrap}.tab{flex:none}.card{padding:20px 17px}.topic-head h2{font-size:25px}.tiles{grid-template-columns:1fr}header{padding:32px 20px}.two-controls{grid-template-columns:1fr}}@media print{body{background:#fff}header{background:#fff;color:#172439;border-bottom:2px solid #172439}header p,header .eyebrow{color:#4d6572}.layout{display:block;padding:0 20px}.sidebar{display:none}.panel{display:block!important;break-before:page;animation:none}.card{box-shadow:none;break-inside:avoid}.codebox{print-color-adjust:exact}.header-meta{display:none}}
 
@@ -27,7 +27,8 @@
 <button class="tab" role="tab" aria-selected="false" aria-controls="p11" id="t11" data-tab="11"><span class="num">12</span> 元组的设计价值</button>
 <button class="tab" role="tab" aria-selected="false" aria-controls="p12" id="t12" data-tab="12"><span class="num">13</span> 哈希与可哈希性</button>
 <button class="tab" role="tab" aria-selected="false" aria-controls="p13" id="t13" data-tab="13"><span class="num">14</span> 列表错题强化</button>
-</nav><div class="progress"><div id="prog"></div></div><div class="sidebar-note">建议路径：先理解变量与对象 → 可变性 → 容器 → 类与类型，再学习其他独立语法。<br><br>新增内容：列表复制、元组设计、哈希机制、错题强化。<br><br>提示：<span class="kbd">←</span> <span class="kbd">→</span> 可切换标签（导航聚焦时）。</div></aside><main class="content">
+<button class="tab" role="tab" aria-selected="false" aria-controls="p14" id="t14" data-tab="14"><span class="num">15</span> 哈希与集合强化</button>
+</nav><div class="progress"><div id="prog"></div></div><div class="sidebar-note">建议路径：先理解变量与对象 → 可变性 → 容器 → 类与类型，再学习其他独立语法。<br><br>新增内容：列表复制、元组设计、哈希机制、集合去重与专项练习。<br><br>提示：<span class="kbd">←</span> <span class="kbd">→</span> 可切换标签（导航聚焦时）。</div></aside><main class="content">
 <section class="panel active" id="p0" role="tabpanel" aria-labelledby="t0"><div class="topic-head"><div class="kicker">00 / OVERVIEW</div><h2>先建立一张知识地图</h2><p>这些问题看似零散，其实可以分为“对象模型”“日常语法”和“底层运算”三个层次。</p></div><article class="card"><h3>三条主线</h3><div class="tiles"><div class="tile"><strong>① 数据究竟是什么？</strong><p>变量、引用、对象、类、字面量、可变性。解决“代码究竟在改变什么”的问题。</p></div><div class="tile"><strong>② 如何组织与使用数据？</strong><p>列表、元组、集合、冻结集合、浅拷贝、哈希、作用域、字符串格式化。解决“怎么写清晰且正确的程序”。</p></div><div class="tile"><strong>③ 整数如何在二进制层面运算？</strong><p>AND、OR、XOR、左右移。解决“为什么看似奇怪的整数计算会得到这个结果”。</p></div><div class="tile"><strong>④ 什么值得优先掌握？</strong><p>阅读 Python / AI Agent 代码时，变量引用、容器、作用域、字符串处理比复杂位运算更常用。</p></div></div></article><article class="card"><h3>最值得反复思考的三句话</h3><div class="core">变量名引用对象；赋值和修改对象不是一回事。</div><div class="core">类可以把数据与操作数据的行为组织在一起，但设计对象更重要的是划清职责边界。</div><div class="core">判断一个操作是否合法，要看它修改了哪个对象，以及那个对象是否允许修改。</div><p class="small">左侧选择主题开始阅读。各主题独立成页，可以直接当作速查手册使用。</p></article></section>
 <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><div class="topic-head"><div class="kicker">01 / OBJECT MODEL</div><h2>变量与对象引用</h2><p>先分清“名字”和“东西”，很多 Python 疑问会迎刃而解。</p></div><article class="card"><h3>一个变量究竟是什么？</h3><div class="core">变量名是对象的引用名称。<code>=</code> 通常让变量名绑定到右侧表达式得到的对象。</div><div class="analogy"><span class="emoji">🏷️</span><div><strong>生活类比：标签与盒子</strong><p>对象是盒子，变量名是贴在盒子上的标签。把标签从旧盒子移到新盒子，不会改变旧盒子内部的东西。</p></div></div><div class="codebox"><button class="copy">复制</button><pre><code>a = [1, 2]
 b = a             # 两个名字引用同一个列表
@@ -237,6 +238,64 @@ x = [2, 4, 6, 8]
 x = [n for n in x if n &gt;= 6]
 print(x)  # [6, 8]</code></pre></div>
 <div class="core">判断是否真正掌握：不查教程，也能解释“为什么得到这个结果”，比背诵方法名重要。</div></article></section>
+
+<section class="panel" id="p14" role="tabpanel" aria-labelledby="t14">
+<div class="topic-head"><div class="kicker">14 / HASH &amp; SET PRACTICE</div><h2>哈希值、可哈希与集合去重</h2><p>通过仓库索引的类比，厘清三个概念，并用真实 Python 代码检验理解。</p></div>
+<article class="card"><h3>先用三个层次理解</h3>
+<div class="tiles">
+<div class="tile"><strong>哈希函数 Hash Function</strong><p>一种从对象计算整数的规则。Python 用 <code>hash(obj)</code> 调用对象的哈希能力。</p></div>
+<div class="tile"><strong>哈希值 Hash Value</strong><p>计算出的整数，可帮助哈希表缩小查找范围；它不保证全球唯一，也不等于实际桶位置。</p></div>
+<div class="tile"><strong>可哈希 Hashable</strong><p>对象提供有效的哈希实现，并满足“生命周期内哈希稳定、相等对象哈希相同”等约定。</p></div>
+<div class="tile"><strong>哈希表 Hash Table</strong><p><code>dict</code> 和 <code>set</code> 使用哈希辅助定位，再结合相等性判断处理重复或冲突。</p></div>
+</div>
+<div class="analogy"><span class="emoji">📦</span><div><strong>生活类比：仓库检索索引</strong><p>根据货物编号计算“去哪个区域查”是哈希机制的直觉。编号 105 与 125 按“编号除以 10 的余数”都会落到位置 5，属于冲突，但它们仍是不同货物。实际 Python 并不采用这个示例的简单哈希规则。</p></div></div>
+<div class="reading-flow"><span>对象 / 键</span><b>→</b><span>哈希整数</span><b>→</b><span>候选位置</span><b>→</b><span>必要时比较是否相等</span></div>
+<div class="core">关键：<code>a == b</code> 为 True ⇒ <code>hash(a) == hash(b)</code>；反过来不一定成立。哈希冲突不是“相同对象”。</div>
+<div class="codebox"><button class="copy">复制</button><pre><code>print(hash((10, 20)))  # 返回整数（具体数值不必背）
+print(hash("apple"))   # 字符串的哈希通常会随进程而变化
+# print(hash([1, 2])) # TypeError: unhashable type: 'list'</code></pre></div>
+<div class="warning">“相同对象的哈希稳定”指同一对象在一次运行中的生命周期，而不是跨所有 Python 进程永久固定。哈希值也不是加密哈希、唯一身份号或稳定的数据库主键。</div>
+</article>
+<article class="card"><h3>为什么集合不允许重复元素？</h3>
+<p><code>set</code> 关注“成员是否存在”，而不是“出现了多少次”。加入元素时，哈希帮助定位，相等性帮助判断是否已经存在。</p>
+<div class="analogy"><span class="emoji">🏸</span><div><strong>生活类比：羽毛球社团成员名册</strong><p>同一个人提交三份申请表，报名记录（<code>list</code>）可以留下三条，但成员名册（<code>set</code>）只需要一条。这里“相同成员”由系统的相等性规则决定。</p></div></div>
+<div class="codebox"><button class="copy">复制</button><pre><code>names = ["Dong", "Alice", "Dong"]
+print(names)       # ['Dong', 'Alice', 'Dong']
+print(set(names))  # {'Dong', 'Alice'}，顺序不固定
+
+values = {1, True, 1.0}
+print(len(values)) # 1：三者相等且哈希相同</code></pre></div>
+<div class="warning">集合无序，不要依赖打印顺序。<code>{}</code> 创建的是空字典；空集合必须使用 <code>set()</code>。可变的 <code>set</code> 自身不可哈希，<code>frozenset</code> 则可用于集合嵌套（前提是成员可哈希）。</div>
+</article>
+<article class="card"><h3>可哈希 ≠ 不可变</h3>
+<div class="table-wrap"><table><thead><tr><th>对象</th><th>能否作为 dict 键 / set 元素</th><th>判断依据</th></tr></thead><tbody>
+<tr><td><code>"Bag001"</code>、<code>10</code></td><td>可以</td><td>内置可哈希值</td></tr>
+<tr><td><code>(10, 20)</code></td><td>可以</td><td>元组及成员可哈希</td></tr>
+<tr><td><code>([10], 20)</code></td><td>不可以</td><td>嵌套的列表不可哈希</td></tr>
+<tr><td><code>[10, 20]</code>、<code>{"x": 1}</code></td><td>不可以</td><td>内置可变容器没有有效哈希实现</td></tr>
+<tr><td><code>frozenset({"A", "B"})</code></td><td>可以</td><td>冻结集合及其成员可哈希</td></tr>
+</tbody></table></div>
+<p>严格来说，可哈希强调遵守哈希与相等性的契约，而非简单的“对象不能修改”。某些自定义对象虽然属性可修改，仍可能按对象身份进行哈希。</p>
+<div class="codebox"><button class="copy">复制</button><pre><code>locations = {(10, 20): "Conveyor A"}
+print(locations[(10, 20)])  # Conveyor A
+
+seen = {"Bag001", "Bag002"}
+print("Bag001" in seen)     # True</code></pre></div>
+</article>
+<article class="card"><h3>脱离教程 · 4 道理解练习</h3><p>先预测，再展开解析。重点是说清楚“为什么”，而非只记答案。</p>
+<div class="mini-quiz"><span class="tagline">01 / 相等性与哈希</span><h4>以下代码打印什么？</h4>
+<div class="codebox"><button class="copy">复制</button><pre><code>x = {1, True, 1.0}
+print(len(x))</code></pre></div><details><summary>查看答案与原因</summary><p><strong>1</strong>。三种表示的值彼此相等且哈希相同，集合只保留一个等价成员；不要把“类型不同”直接当成“集合元素不同”。</p></details></div>
+<div class="mini-quiz"><span class="tagline">02 / 元组的内部对象</span><h4>哪行会抛出 TypeError？</h4>
+<div class="codebox"><button class="copy">复制</button><pre><code>a = (1, "apple")
+b = ([1, 2], "apple")
+print(hash(a))
+print(hash(b))</code></pre></div><details><summary>查看答案与原因</summary><p><strong><code>hash(b)</code></strong>。元组本身不可替换元素，不等于其成员全部可哈希；内部的 <code>list</code> 不可哈希。</p></details></div>
+<div class="mini-quiz"><span class="tagline">03 / 哈希冲突</span><h4>如果两个不同键恰巧哈希值一样，字典会将它们当成同一键吗？</h4><details><summary>查看答案与原因</summary><p><strong>不一定，更不能只凭哈希相同下结论。</strong> 字典还需要判断键是否相等。不同对象可以碰撞但仍然代表不同键。</p></details></div>
+<div class="mini-quiz"><span class="tagline">04 / 实际选型</span><h4>需要快速判断某个行李编号是否已经处理过，应该优先考虑什么容器？</h4>
+<div class="codebox"><button class="copy">复制</button><pre><code># 需要：记录唯一编号，快速执行 "Bag001" in container</code></pre></div><details><summary>查看答案与原因</summary><p><strong><code>set</code></strong>。它自动去重，平均情况下成员查找接近 O(1)；列表查找通常是 O(n)。如果还要给每个行李编号关联状态值，则考虑 <code>dict</code>。</p></details></div>
+<div class="core">记忆顺序：哈希函数产生整数 → 可哈希保证规则可靠 → 字典/集合利用哈希加速查找 → 冲突时仍需相等性判断。</div>
+</article></section>
 <div class="footer">Python 基础学习笔记 · 基于当前学习讨论整理 · 无需互联网连接 · 可在浏览器中打印为 PDF</div>
 </main></div>
 <script>
